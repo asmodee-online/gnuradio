@@ -100,6 +100,7 @@ IF(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     ELSE()
         MESSAGE(WARNING "\nCannot determine the version of the compiler selected to build GNU Radio (GCC : ${CMAKE_CXX_COMPILER}). This build may or not work. We highly recommend using GCC version ${GCC_MIN_VERSION} or more recent.")
     ENDIF()
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     EXECUTE_PROCESS(COMMAND
         ${CMAKE_CXX_COMPILER} -v
@@ -144,7 +145,7 @@ IF(CMAKE_VERSION VERSION_LESS "3.1")
     ENDIF()
 
     IF(CMAKE_C_COMPILER_ID STREQUAL "GNU")
-        SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99")
+        #SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99")
     ELSEIF(CMAKE_C_COMPILER_ID STREQUAL "Clang")
         SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99")
     ELSEIF(CMAKE_C_COMPILER_ID STREQUAL "MSVC")

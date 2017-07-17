@@ -25,6 +25,7 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 #include <cppunit/TestCase.h>
+#include <memory>
 
 class qa_fxpt_nco : public CppUnit::TestCase
 {
